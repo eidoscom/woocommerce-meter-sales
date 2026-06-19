@@ -1,0 +1,386 @@
+# Copyright (C) 2026 WooCommerce Meter Sales
+# This file is distributed under the same license as the plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Meter Sales 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-06-18T00:00:00+00:00\n"
+
+#: woocommerce-meter-sales.php:26
+msgid "WooCommerce Meter Sales requires WooCommerce to be installed and active."
+msgstr ""
+
+#: includes/class-admin.php:27
+msgid "Meter Sales"
+msgstr ""
+
+#: includes/class-admin.php:45
+msgid "Sell by meter"
+msgstr ""
+
+#: includes/class-admin.php:46
+msgid "Enable linear meter pricing with DTF nesting calculator for this product."
+msgstr ""
+
+#: includes/class-admin.php:54
+msgid "Film width (cm)"
+msgstr ""
+
+#: includes/class-admin.php:62
+msgid "Fixed base price"
+msgstr ""
+
+#: includes/class-admin.php:63
+msgid "Added once per order regardless of length."
+msgstr ""
+
+#: includes/class-admin.php:71
+msgid "Gap between copies (cm)"
+msgstr ""
+
+#: includes/class-admin.php:79
+msgid "Waste percentage (%)"
+msgstr ""
+
+#: includes/class-admin.php:80
+msgid "Extra material added to compensate for borders and waste."
+msgstr ""
+
+#: includes/class-admin.php:89
+msgid "Minimum charge (meters)"
+msgstr ""
+
+#: includes/class-admin.php:90
+msgid "Override the global minimum for this product. Leave empty for global default."
+msgstr ""
+
+#: includes/class-admin.php:94
+msgid "Global default"
+msgstr ""
+
+#: includes/class-admin.php:114
+msgid "Price Tiers (per meter)"
+msgstr ""
+
+#: includes/class-admin.php:118
+msgid "From (m)"
+msgstr ""
+
+#: includes/class-admin.php:119
+msgid "To (m)"
+msgstr ""
+
+#: includes/class-admin.php:120
+msgid "Price per meter"
+msgstr ""
+
+#: includes/class-admin.php:136
+msgid "Add tier"
+msgstr ""
+
+#: includes/class-settings.php:26
+msgid "Settings"
+msgstr ""
+
+#: includes/class-settings.php:34 includes/class-settings.php:35
+msgid "Meter Sales"
+msgstr ""
+
+#: includes/class-settings.php:52
+msgid "General"
+msgstr ""
+
+#: includes/class-settings.php:59
+msgid "Default film width (cm)"
+msgstr ""
+
+#: includes/class-settings.php:68
+msgid "Default gap (cm)"
+msgstr ""
+
+#: includes/class-settings.php:77
+msgid "Default waste (%)"
+msgstr ""
+
+#: includes/class-settings.php:86
+msgid "DPI for image conversion"
+msgstr ""
+
+#: includes/class-settings.php:95 includes/class-admin.php:89
+msgid "Minimum charge (meters)"
+msgstr ""
+
+#: includes/class-settings.php:99
+msgid "Always charge at least this many meters, even for smaller jobs. Set 0 to disable."
+msgstr ""
+
+#: includes/class-settings.php:104
+msgid "Currency & Formatting"
+msgstr ""
+
+#: includes/class-settings.php:111
+msgid "Currency symbol"
+msgstr ""
+
+#: includes/class-settings.php:120
+msgid "Currency position"
+msgstr ""
+
+#: includes/class-settings.php:128
+msgid "Left ($10)"
+msgstr ""
+
+#: includes/class-settings.php:129
+msgid "Right (10$)"
+msgstr ""
+
+#: includes/class-settings.php:130
+msgid "Left with space ($ 10)"
+msgstr ""
+
+#: includes/class-settings.php:131
+msgid "Right with space (10 $)"
+msgstr ""
+
+#: includes/class-settings.php:138
+msgid "Decimal separator"
+msgstr ""
+
+#: includes/class-settings.php:147
+msgid "Thousand separator"
+msgstr ""
+
+#: includes/class-settings.php:156
+msgid "Appearance"
+msgstr ""
+
+#: includes/class-settings.php:163
+msgid "Primary color"
+msgstr ""
+
+#: includes/class-settings.php:172
+msgid "Accent color"
+msgstr ""
+
+#: includes/class-settings.php:181
+msgid "Canvas background"
+msgstr ""
+
+#: includes/class-settings.php:190
+msgid "Rectangle colors (comma-separated hex)"
+msgstr ""
+
+#: includes/class-settings.php:199
+msgid "Custom CSS"
+msgstr ""
+
+#: includes/class-settings.php:208
+msgid "Labels / Translation"
+msgstr ""
+
+#: includes/class-settings.php:227
+msgid "Advanced"
+msgstr ""
+
+#: includes/class-settings.php:234
+msgid "Enable PDF upload"
+msgstr ""
+
+#: includes/class-settings.php:238
+msgid "Allow PDF file upload in calculator"
+msgstr ""
+
+#: includes/class-settings.php:243
+msgid "Debug mode"
+msgstr ""
+
+#: includes/class-settings.php:247
+msgid "Log AJAX responses to browser console"
+msgstr ""
+
+#: includes/class-settings.php:253
+msgid "Calculator title"
+msgstr ""
+
+#: includes/class-settings.php:254
+msgid "Upload field label"
+msgstr ""
+
+#: includes/class-settings.php:255
+msgid "Processing file text"
+msgstr ""
+
+#: includes/class-settings.php:256
+msgid "Image width label"
+msgstr ""
+
+#: includes/class-settings.php:257
+msgid "Image height label"
+msgstr ""
+
+#: includes/class-settings.php:258
+msgid "Copies label"
+msgstr ""
+
+#: includes/class-settings.php:259
+msgid "Film width label"
+msgstr ""
+
+#: includes/class-settings.php:260
+msgid "Preview button text"
+msgstr ""
+
+#: includes/class-settings.php:261
+msgid "Total meters"
+msgstr ""
+
+#: includes/class-settings.php:262
+msgid "Arrangement label"
+msgstr ""
+
+#: includes/class-settings.php:263
+msgid "Fixed base label"
+msgstr ""
+
+#: includes/class-settings.php:264
+msgid "Price per meter label"
+msgstr ""
+
+#: includes/class-settings.php:265
+msgid "Total price label"
+msgstr ""
+
+#: includes/class-settings.php:266
+msgid "\"From:\" prefix text"
+msgstr ""
+
+#: includes/class-settings.php:267
+msgid "Rotated 90\u00b0 message"
+msgstr ""
+
+#: includes/class-settings.php:268
+msgid "Copies text in result"
+msgstr ""
+
+#: includes/class-settings.php:301
+msgid "These settings override the default WooCommerce currency format for the calculator display only."
+msgstr ""
+
+#: includes/class-settings.php:305
+msgid "Override any text shown in the calculator. Leave blank to use the default translation."
+msgstr ""
+
+#: includes/class-settings.php:365
+msgid "Meter Sales Settings"
+msgstr ""
+
+#: includes/class-frontend.php:56
+msgid "Total price"
+msgstr ""
+
+#: includes/class-frontend.php:57
+msgid "Total meters"
+msgstr ""
+
+#: includes/class-frontend.php:58
+msgid "Price per meter"
+msgstr ""
+
+#: includes/class-frontend.php:59
+msgid "Fixed base"
+msgstr ""
+
+#: includes/class-frontend.php:60
+msgid "copies"
+msgstr ""
+
+#: includes/class-frontend.php:61
+msgid "(rotated 90\u00b0)"
+msgstr ""
+
+#: includes/class-frontend.php:105
+msgid "From: "
+msgstr ""
+
+#: includes/class-frontend.php:139
+msgid "Minimum charge of %s m applied."
+msgstr ""
+
+#: includes/class-cart.php:75
+msgid "Image size"
+msgstr ""
+
+#: includes/class-cart.php:76
+msgid "rotated"
+msgstr ""
+
+#: includes/class-cart.php:79
+msgid "Copies"
+msgstr ""
+
+#: includes/class-cart.php:83
+msgid "Film consumption"
+msgstr ""
+
+#: includes/class-cart.php:87
+msgid "Arrangement"
+msgstr ""
+
+#: templates/product-calculator.php:2
+msgid "DTF Meter Calculator"
+msgstr ""
+
+#: templates/product-calculator.php:3
+msgid "Upload PDF or PNG (or enter dimensions manually)"
+msgstr ""
+
+#: templates/product-calculator.php:4
+msgid "Processing file..."
+msgstr ""
+
+#: templates/product-calculator.php:5
+msgid "Image width (cm)"
+msgstr ""
+
+#: templates/product-calculator.php:6
+msgid "Image height (cm)"
+msgstr ""
+
+#: templates/product-calculator.php:7
+msgid "Number of copies"
+msgstr ""
+
+#: templates/product-calculator.php:8
+msgid "Film width: "
+msgstr ""
+
+#: templates/product-calculator.php:9
+msgid "View full preview"
+msgstr ""
+
+#: templates/product-calculator.php:10
+msgid "Total meters"
+msgstr ""
+
+#: templates/product-calculator.php:11
+msgid "Arrangement"
+msgstr ""
+
+#: templates/product-calculator.php:12
+msgid "Fixed base"
+msgstr ""
+
+#: templates/product-calculator.php:13
+msgid "Price per meter"
+msgstr ""
+
+#: templates/product-calculator.php:14
+msgid "Total price"
+msgstr ""

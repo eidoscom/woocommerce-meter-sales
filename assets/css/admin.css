@@ -1,0 +1,72 @@
+﻿.wcms_tiers_table th,
+.wcms_tiers_table td {
+    padding: 4px 8px;
+    vertical-align: middle;
+}
+.wcms_tiers_table input {
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+#wcms_fields {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.wrap.wcms-settings-page .form-table th {
+    width: 220px;
+}
+.wrap.wcms-settings-page .form-table td {
+    vertical-align: top;
+}
+.wrap.wcms-settings-page .form-table td p.description {
+    margin-top: 4px;
+}
+.wcms-rect-colors-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+.wcms-rect-color-swatch {
+    display: inline-flex;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    position: relative;
+    cursor: default;
+}
+.wcms-rect-color-remove {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 16px;
+    height: 16px;
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+    background: #c00;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    display: none;
+}
+.wcms-rect-color-swatch:hover .wcms-rect-color-remove {
+    display: block;
+}
+.wcms-rect-color-add {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.wcms-rect-color-add .wcms-rect-color-picker {
+    width: 100px;
+}
+.wcms-rect-color-add .button {
+    margin: 0;
+}

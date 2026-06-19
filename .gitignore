@@ -1,0 +1,6 @@
+node_modules/
+visual-builder/node_modules/
+visual-builder/build/
+*.bak
+.DS_Store
+Thumbs.db

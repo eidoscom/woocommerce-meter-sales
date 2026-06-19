@@ -1,0 +1,26 @@
+.wcms-divi-placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 200px;
+	background: #f5f5f5;
+	border: 2px dashed #ddd;
+	border-radius: 8px;
+	padding: 20px;
+	text-align: center;
+	color: #666;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.wcms-divi-placeholder-title {
+	font-size: 16px;
+	font-weight: 700;
+	color: #333;
+	margin-bottom: 6px;
+}
+
+.wcms-divi-placeholder-desc {
+	font-size: 13px;
+	color: #888;
+}
