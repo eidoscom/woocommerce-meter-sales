@@ -45,7 +45,7 @@
             this.$fileList.on("input", ".wcms-file-title", $.proxy(this.onTitleChange, this));
             this.$previewBtn.on("click", $.proxy(this.showLightbox, this));
             this.$optimizeBtn.on("click", $.proxy(this.onOptimize, this));
-            $("form.cart").on("submit", $.proxy(this.onAddToCart, this));
+            this.$addToCart.on("click", $.proxy(this.onAddToCart, this));
         },
 
         onUpload: function(e) {
@@ -76,6 +76,7 @@
         addFileEntry: function(fileEntry) {
             this.files.push(fileEntry);
             this.renderFileList();
+            this.calculate();
         },
 
         renderFileList: function() {
@@ -288,6 +289,7 @@
                         title: file.name.replace(/\.[^.]+$/, ""),
                         thumb: ev.target.result,
                         image: img,
+                        _file: file,
                         pixel_w: img.width,
                         pixel_h: img.height,
                         print_w: wCm,
@@ -347,6 +349,7 @@
                             title: file.name.replace(/\.[^.]+$/, ""),
                             thumb: dataUrl,
                             image: img,
+                            _file: file,
                             pixel_w: Math.round(vp.width),
                             pixel_h: Math.round(vp.height),
                             print_w: wCm,
@@ -1045,13 +1048,62 @@
         },
 
         onAddToCart: function(e) {
+            e.preventDefault();
             var data = this.$imagesData.val();
             if (!data || data === "[]" || data === "") {
-                e.preventDefault();
-                alert("Please upload at least one image before adding to cart.");
+                if (this.files.length > 0) {
+                    var images = [];
+                    for (var i = 0; i < this.files.length; i++) {
+                        var f = this.files[i];
+                        images.push({ img_w: f.print_w, img_h: f.print_h, copies: f.copies || 1, title: f.title || f.name });
+                    }
+                    data = JSON.stringify(images);
+                    this.$imagesData.val(data);
+                } else {
+                    alert("Please upload at least one image before adding to cart.");
+                    return false;
+                }
+            }
+            var $form = $(this.$addToCart).closest("form.cart");
+            if ($form.length) {
+                $form.submit();
+                return true;
+            }
+            var productId = parseInt(this.params.product_id);
+            if (!productId) {
+                alert("No product selected.");
                 return false;
             }
-            return true;
+            var self = this;
+            var formData = new FormData();
+            formData.append("product_id", productId);
+            formData.append("quantity", 1);
+            formData.append("wcms_images_data", data);
+            for (var fi = 0; fi < this.files.length; fi++) {
+                var f = this.files[fi];
+                if (f._file) {
+                    formData.append("wcms_files[]", f._file, f._file.name);
+                }
+            }
+            $.ajax({
+                url: this.params.ajax_add_to_cart,
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(res) {
+                    if (res && res.fragments) {
+                        $(document.body).trigger("added_to_cart", [res.fragments, res.cart_hash, self.$addToCart]);
+                    } else if (res && res.error && res.product_url) {
+                        window.location.href = res.product_url;
+                    } else {
+                        window.location.href = self.params.ajax_add_to_cart.replace("wc-ajax=add_to_cart", "add-to-cart=" + productId);
+                    }
+                },
+                error: function() {
+                    window.location.href = self.params.ajax_add_to_cart.replace("wc-ajax=add_to_cart", "add-to-cart=" + productId);
+                }
+            });
         },
 
         escapeHtml: function(text) {

@@ -60,8 +60,10 @@
         updateRectColorsInput($wrapper);
     });
 
-    $(".wcms-rect-color-picker").wpColorPicker({
-        hide: true,
-        palettes: ["#e74c3c","#3498db","#2ecc71","#f39c12","#9b59b6","#1abc9c","#34495e","#e67e22"]
-    });
+    if ($.fn.wpColorPicker) {
+        $(".wcms-rect-color-picker").wpColorPicker({
+            hide: true,
+            palettes: ["#e74c3c","#3498db","#2ecc71","#f39c12","#9b59b6","#1abc9c","#34495e","#e67e22"]
+        });
+    }
 });

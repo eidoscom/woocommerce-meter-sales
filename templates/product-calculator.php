@@ -93,5 +93,6 @@ $add_to_cart_text = $product ? $product->single_add_to_cart_text() : __( 'Add to
         </div>
     </div>
 
+    <input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $current_product_id ); ?>" />
     <input type="hidden" name="wcms_images_data" id="wcms_images_data" value="" />
 </div>

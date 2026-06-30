@@ -13,15 +13,16 @@ class WCMS_Admin {
     }
 
     public function enqueue_admin_scripts( $hook ) {
-        if ( $hook !== 'post.php' && $hook !== 'post-new.php' ) {
-            return;
-        }
-        global $post;
-        if ( ! $post ) {
-            return;
-        }
-        $pt = get_post_type( $post->ID );
-        if ( $pt !== 'product' && $pt !== 'shop_order' && $pt !== 'shop_order_placehold' ) {
+        if ( $hook === 'post.php' || $hook === 'post-new.php' ) {
+            global $post;
+            if ( ! $post ) {
+                return;
+            }
+            $pt = get_post_type( $post->ID );
+            if ( $pt !== 'product' && $pt !== 'shop_order' && $pt !== 'shop_order_placehold' ) {
+                return;
+            }
+        } else if ( ! str_starts_with( $hook, 'woocommerce_page_wc-orders' ) ) {
             return;
         }
         wp_enqueue_style( 'wcms-admin', WCMS_PLUGIN_URL . 'assets/css/admin.css', array(), WCMS_VERSION );
@@ -220,7 +221,8 @@ class WCMS_Admin {
         jQuery(document).ready(function($) {
             $('.wcms-download-imposition').on('click', function() {
                 var orderId = $(this).data('order_id');
-                window.location.href = ajaxurl + '?action=wcms_download_imposition&order_id=' + orderId + '&nonce=<?php echo esc_js( wp_create_nonce( 'wcms_download_imposition' ) ); ?>';
+                var url = (typeof ajaxurl !== 'undefined' ? ajaxurl : '<?php echo esc_js( admin_url( 'admin-ajax.php' ) ); ?>');
+                window.location.href = url + '?action=wcms_download_imposition&order_id=' + orderId + '&nonce=<?php echo esc_js( wp_create_nonce( 'wcms_download_imposition' ) ); ?>';
             });
         });
         </script>
@@ -239,38 +241,11 @@ class WCMS_Admin {
             wp_die( 'Order not found.' );
         }
 
-        $all_images_data = array();
-        $film_width = 57;
-        $gap = 0.5;
-
-        foreach ( $order->get_items() as $item ) {
-            $images_data = $item->get_meta( '_wcms_images_data' );
-            if ( $images_data ) {
-                $decoded = json_decode( $images_data, true );
-                if ( is_array( $decoded ) ) {
-                    $all_images_data = array_merge( $all_images_data, $decoded );
-                }
-                $product_id = $item->get_product_id();
-                $fw = get_post_meta( $product_id, '_wcms_film_width', true );
-                if ( $fw ) {
-                    $film_width = floatval( $fw );
-                }
-                $g = get_post_meta( $product_id, '_wcms_gap', true );
-                if ( $g !== '' ) {
-                    $gap = floatval( $g );
-                }
-            }
+        try {
+            WCMS_Imposition_PDF::download( $order_id );
+        } catch ( \Throwable $e ) {
+            wp_die( 'Error generating PDF: ' . esc_html( $e->getMessage() ) );
         }
-
-        if ( empty( $all_images_data ) ) {
-            wp_die( 'No imposition data found.' );
-        }
-
-        $nesting = new WCMS_Nesting();
-        $result  = $nesting->calculate_multi( $film_width, $all_images_data, $gap, 0 );
-
-        $this->render_imposition_image( $film_width, $result, $all_images_data );
-        exit;
     }
 
     private function render_imposition_image( $film_width_cm, $nesting_result, $images_data ) {

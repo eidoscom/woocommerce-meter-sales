@@ -37,6 +37,7 @@ function wcms_init() {
     require_once WCMS_PLUGIN_DIR . 'includes/class-nesting.php';
     require_once WCMS_PLUGIN_DIR . 'includes/class-frontend.php';
     require_once WCMS_PLUGIN_DIR . 'includes/class-cart.php';
+    require_once WCMS_PLUGIN_DIR . 'includes/class-imposition-pdf.php';
 
     new WCMS_Admin();
     new WCMS_Settings();

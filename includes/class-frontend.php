@@ -37,9 +37,10 @@ class WCMS_Frontend {
 			$dpi        = intval( WCMS_Settings::get( 'dpi', 300 ) );
 
 			wp_localize_script( 'wcms-calculator', 'wcms_params', array(
-				'ajax_url'       => WC_AJAX::get_endpoint( 'wcms_calculate_multi' ),
-				'ajax_price_url' => WC_AJAX::get_endpoint( 'wcms_calculate_price' ),
-				'product_id'     => $product_id,
+				'ajax_url'           => WC_AJAX::get_endpoint( 'wcms_calculate_multi' ),
+				'ajax_price_url'     => WC_AJAX::get_endpoint( 'wcms_calculate_price' ),
+				'ajax_add_to_cart'   => WC_AJAX::get_endpoint( 'add_to_cart' ),
+				'product_id'         => $product_id,
 				'nonce'          => wp_create_nonce( 'wcms_calculate' ),
 				'film_width'     => $film_width,
 				'gap'            => $gap,
